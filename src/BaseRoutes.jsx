@@ -11,6 +11,9 @@ import ShareRoutes from './ShareRoutes'
 import debug from './utils/debug'
 
 
+export const INSTALL_PATH = '/private'
+
+
 // Enable when we build app in GitHub actions.
 // import {OAUTH_DOMAIN, OAUTH_CLIENT_ID} from 'env'
 
@@ -20,7 +23,7 @@ import debug from './utils/debug'
 // Auth0: Main Bldrs.ai GHP app
 // const OAUTH_CLIENT_ID = 'xojbbSyJ9n6HUdZwE7LUX7Zvff6ejxjv'
 
-// Auth0: pablo-mayrgundter/Share
+// Auth0: pablo-mayrgundter/private
 export const OAUTH_CLIENT_ID = 'xIGABT7wbAA4cbW0ZvTXm4jd5tOHugTe'
 
 // GitHub: OAuth app
@@ -45,7 +48,7 @@ export const OAUTH_DOMAIN = 'bldrs.us.auth0.com'
  */
 export default function BaseRoutes({testElt = null}) {
   const appPrefix = '/share'
-  const installPrefix = window.location.pathname.startsWith('/Share') ? '/Share' : ''
+  const installPrefix = window.location.pathname.startsWith(INSTALL_PATH) ? INSTALL_PATH : ''
   const installedAppPrefix = installPrefix + appPrefix
   const location = useLocation()
   const navigate = useNavigate()
@@ -64,7 +67,7 @@ export default function BaseRoutes({testElt = null}) {
     <Auth0Provider
       domain={OAUTH_DOMAIN}
       clientId={OAUTH_CLIENT_ID}
-      redirectUri={window.location.origin + '/Share'}>
+      redirectUri={window.location.origin + INSTALL_PATH}>
       <Routes>
         <Route path={basePath} element={<Outlet/>}>
           <Route

@@ -4,7 +4,7 @@ import {makeStyles} from '@mui/styles'
 import {Color} from 'three'
 import {IfcViewerAPI} from 'web-ifc-viewer'
 import createAuth0Client from '@auth0/auth0-spa-js'
-import {OAUTH_DOMAIN, OAUTH_CLIENT_ID} from '../BaseRoutes'
+import {INSTALL_PATH, OAUTH_DOMAIN, OAUTH_CLIENT_ID} from '../BaseRoutes'
 import {ColorModeContext, navToDefault} from '../Share'
 import Alert from '../Components/Alert'
 import BaseGroup from '../Components/BaseGroup'
@@ -154,7 +154,7 @@ export default function CadView({
     const auth0 = await createAuth0Client({
       domain: OAUTH_DOMAIN,
       client_id: OAUTH_CLIENT_ID,
-      redirect_uri: window.location.origin + '/Share',
+      redirect_uri: window.location.origin + INSTALL_PATH,
     })
     auth0
         .getTokenSilently()
