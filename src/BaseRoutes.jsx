@@ -27,7 +27,7 @@ import debug from './utils/debug'
 export default function BaseRoutes({testElt = null}) {
   const location = useLocation()
   const navigate = useNavigate()
-  const installPrefix = window.location.pathname.startsWith('/Share') ? '/Share' : ''
+  const installPrefix = window.location.pathname.startsWith(INSTALL_PATH) ? INSTALL_PATH : ''
 
   useEffect(() => {
     if (location.pathname === installPrefix ||
@@ -54,3 +54,6 @@ export default function BaseRoutes({testElt = null}) {
     </Routes>
   )
 }
+
+
+export const INSTALL_PATH = '/Share'

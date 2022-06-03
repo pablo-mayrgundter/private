@@ -60,8 +60,7 @@
     <div id="root"></div>
     <script>
       const loader = document.createElement('script');
-      const pathPrefix = window.location.pathname.startsWith('/Share') ? '/Share' : '';
-      loader.setAttribute('src', pathPrefix + '/index.js');
+      loader.setAttribute('src', './index.js');
       document.body.appendChild(loader)
     </script>
   </body>
