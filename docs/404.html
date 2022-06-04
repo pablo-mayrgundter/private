@@ -14,6 +14,7 @@
       const appPathNdx = path.indexOf(appPathPart)
       var pathSegmentsToKeep = 0
       if (appPathNdx >= 2) {
+        console.log('Detected install prefix, keeping it')
         pathSegmentsToKeep = 1
       }
 
