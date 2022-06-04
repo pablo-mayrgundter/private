@@ -9,14 +9,7 @@
       // MIT License
       // https://github.com/rafgraph/spa-github-pages
       // This page needs to be > 512 bytes to work for IE.  Currently 968.
-      const path = window.location.pathname
-      const appPathPart = '/share/'
-      const appPathNdx = path.indexOf(appPathPart)
-      var pathSegmentsToKeep = 0
-      if (appPathNdx >= 2) {
-        console.log('Detected install prefix, keeping it')
-        pathSegmentsToKeep = 1
-      }
+      const pathSegmentsToKeep = window.location.pathname.startsWith('/Share') ? 1 : 0
 
       var l = window.location;
       l.replace(
